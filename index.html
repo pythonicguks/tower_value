@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#12101a">
+  <title>Tower Value — La garde des sept éléments</title>
+  <meta name="description" content="Tower defense heroic fantasy : sept éléments, leurs synergies, une campagne de huit batailles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2312101a'/%3E%3Cpath d='M9 27V12H7V6h4v3h3V6h4v3h3V6h4v6h-2v15z' fill='%23e2b857'/%3E%3C/svg%3E">
+</head>
+<body>
+<div id="app">
+
+  <section class="screen" id="s-title">
+    <div class="title-sky"></div>
+    <div class="title-wrap">
+      <p class="over">Chroniques du royaume de Valeur</p>
+      <h1>Tower Value</h1>
+      <p class="tagline">Sept éléments. Une seule muraille.</p>
+      <div class="title-towers" id="title-towers"></div>
+      <div class="title-actions">
+        <button class="btn big" data-act="play">Entrer en campagne</button>
+        <button class="btn ghost" data-act="grimoire">Grimoire</button>
+      </div>
+      <button class="link" data-act="wipe" id="wipe" hidden>Effacer la progression</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s-map" hidden>
+    <header class="bar">
+      <button class="btn small ghost" data-act="title" aria-label="Retour à l'écran titre">‹ Titre</button>
+      <h2>Campagne de Valeur</h2>
+      <div class="bar-right">
+        <span class="stars-total" id="stars-total"></span>
+        <button class="btn small" data-act="sanct">Sanctuaire<span class="dot" id="sanct-dot" hidden></span></button>
+        <button class="btn small ghost" data-act="grimoire">Grimoire</button>
+      </div>
+    </header>
+    <div class="map-wrap">
+      <div class="map-fit"><div class="map" id="map"></div></div>
+    </div>
+    <footer class="unlocks" id="unlocks"></footer>
+  </section>
+
+  <section class="screen" id="s-sanct" hidden>
+    <header class="bar">
+      <button class="btn small ghost" data-act="map">‹ Carte</button>
+      <h2>Sanctuaire des Gardiens</h2>
+      <div class="bar-right">
+        <span class="stars-total" id="sanct-stars"></span>
+        <button class="btn small ghost" data-act="reset-talents">Réattribuer</button>
+      </div>
+    </header>
+    <div class="sanct" id="sanct"></div>
+  </section>
+
+  <section class="screen" id="s-game" hidden>
+    <div id="stage">
+      <div id="field">
+        <canvas id="cv"></canvas>
+        <div id="hud">
+          <div class="hud-left">
+            <span class="chip lives" id="hud-lives"></span>
+            <span class="chip gold" id="hud-gold"></span>
+            <span class="chip wave" id="hud-wave"></span>
+          </div>
+          <button class="wavebtn" id="wavebtn" data-act="wave"></button>
+          <div class="hud-right">
+            <button class="ico" id="btn-speed" data-act="speed" aria-label="Vitesse">×1</button>
+            <button class="ico" id="btn-pause" data-act="pause" aria-label="Pause">❚❚</button>
+            <button class="ico" id="btn-sound" data-act="sound" aria-label="Son">♪</button>
+            <button class="ico" data-act="grimoire" aria-label="Grimoire">?</button>
+          </div>
+        </div>
+        <div id="banner"></div>
+      </div>
+    </div>
+    <aside id="panel"></aside>
+  </section>
+
+  <div class="modal" id="modal" hidden><div class="sheet" id="sheet"></div></div>
+
+  <div id="rotate" hidden>
+    <div>
+      <div class="rot-ico">⟳</div>
+      <p>Le champ de bataille est plus lisible en mode paysage.</p>
+      <button class="btn small" data-act="rotate-ok">Jouer quand même</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
